@@ -1,24 +1,24 @@
-.container-card {
-  display: grid;
-  max-width: 300px;
-  grid-template-columns: 1fr;
-  justify-items: center;
-  align-items: center;
-  background-color: var(--secondary-color);
-  color: var(--primary-color); // Textfarbe auf primäre Farbe setzen
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin: 200px;
+.container {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 20px !important;
+  padding: 20px !important;
+  width: 100% !important;
 }
 
-mat-card-title {
+.mat-card {
+  background-color: var(--secondary-color) !important;
+  color: var(--primary-color) !important;
+  padding: 20px !important;
+  border-radius: 10px !important;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1) !important;
+  text-align: center !important;
+  width: 100% !important;
+}
+
+.mat-card-subtitle {
   color: var(--primary-color);
+  margin-top: 20px;
 }
-
-mat-card-subtitle {
-  color: #ccc;
-}
-
 
 

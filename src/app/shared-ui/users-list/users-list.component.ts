@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import {Component, inject, Input} from '@angular/core';
 import {RouterOutlet} from "@angular/router";
 import {MatCard, MatCardContent, MatCardHeader, MatCardSubtitle, MatCardTitle} from "@angular/material/card";
+import {User} from "../../data/interfaces/userApiService";
+import {UserApiService} from "../../data/services/userApiService";
 
 @Component({
   selector: 'app-users-list',
@@ -18,4 +20,15 @@ import {MatCard, MatCardContent, MatCardHeader, MatCardSubtitle, MatCardTitle} f
 })
 export class UsersListComponent {
 
+  profileUserService = inject(UserApiService)
+  users: User[] = []
+
+  @Input() user!: User
+
+  constructor() {
+    this.profileUserService.getApiUser()
+      .subscribe(value => {
+        this.users = value
+      })
+  }
 }

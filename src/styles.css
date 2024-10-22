@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 :root {
-  --primary-color: #3498db;
-  --secondary-color: #6c757d;
+  --primary-color: #f1ecec;
+  --secondary-color: #373b3f;
 }
 
 html, body {
@@ -11,6 +11,18 @@ html, body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.btn-small {
+  width: 200px;
+  background: green;
+  border: none;
+  color: var(--primary-color);
+  padding: 8px;
+  margin-top: 8px;
+}
+.btn-small:hover {
+  background: tomato;
 }
 
 /*# sourceMappingURL=styles.css.map */

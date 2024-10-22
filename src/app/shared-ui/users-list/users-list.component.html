@@ -1,11 +1,25 @@
-<mat-card appearance="outlined" class="container-card">
-  <mat-card-content class="container-content">
-    <mat-card-title>
-      Leanne Graham Bret
-    </mat-card-title>
-    <mat-card-subtitle>
-      <p>Test</p>
-    </mat-card-subtitle>
-  </mat-card-content>
+@for (user of users; track user.id) {
+  <div class="container">
+    <mat-card appearance="outlined" class="mat-card">
+      <mat-card-content class="container-content">
+        <mat-card-title class="card-title">
+          {{user.name}}
+        </mat-card-title>
+        <mat-card-subtitle class="mat-card-subtitle">
+         {{user.email}}
+        </mat-card-subtitle>
+        <mat-card-subtitle class="mat-card-subtitle">
+          {{user.website}}
+        </mat-card-subtitle>
+        <mat-card-subtitle class="mat-card-subtitle">
+          {{user.company.name}}
+        </mat-card-subtitle>
+        <button class="btn-small">Hinzufügen</button>
+      </mat-card-content>
+    </mat-card>
+  </div>
+}
 
-</mat-card>
+
+
+
