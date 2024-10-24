@@ -1,15 +1,17 @@
 import {Component, inject, Input} from '@angular/core';
 import {RouterOutlet} from "@angular/router";
-import {MatCard, MatCardContent, MatCardHeader, MatCardSubtitle, MatCardTitle} from "@angular/material/card";
 import {User} from "../../data/interfaces/userApiService";
 import {UserApiService} from "../../data/services/userApiService";
+
+import {JsonPipe} from "@angular/common";
+import {MatCard, MatCardContent, MatCardSubtitle, MatCardTitle} from "@angular/material/card";
 
 @Component({
   selector: 'app-users-list',
   standalone: true,
   imports: [
     RouterOutlet,
-    MatCardHeader,
+    JsonPipe,
     MatCard,
     MatCardContent,
     MatCardTitle,
@@ -21,14 +23,25 @@ import {UserApiService} from "../../data/services/userApiService";
 export class UsersListComponent {
 
   profileUserService = inject(UserApiService)
-  users: User[] = []
+  users: User[] = [];
 
   @Input() user!: User
 
+
   constructor() {
     this.profileUserService.getApiUser()
-      .subscribe(value => {
-        this.users = value
+      .subscribe(outputUser => {
+        this.users = outputUser
       })
   }
+
+  addUser(user: User) {
+    this.users.push(user)
+  }
+
+
+  deleteUser(id: number) {
+    this.users = this.users.filter(user => user.id !== id)
+  }
+
 }

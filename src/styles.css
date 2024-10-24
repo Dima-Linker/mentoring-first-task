@@ -13,16 +13,36 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-.btn-small {
+.btn-add {
   width: 200px;
   background: green;
   border: none;
   color: var(--primary-color);
   padding: 8px;
   margin-top: 8px;
+  border-radius: 16px;
 }
-.btn-small:hover {
-  background: tomato;
+.btn-add:hover {
+  opacity: 0.9;
+}
+.btn-add:active {
+  opacity: 0.8;
+}
+
+.btn-delete {
+  width: 200px;
+  background: #4f080f;
+  border: none;
+  color: var(--primary-color);
+  padding: 8px;
+  margin-top: 8px;
+  border-radius: 16px;
+}
+.btn-delete:hover {
+  opacity: 0.8;
+}
+.btn-delete:active {
+  opacity: 1;
 }
 
 /*# sourceMappingURL=styles.css.map */
