@@ -36,7 +36,7 @@ export class UsersListComponent {
   }
 
   addUser(user: User) {
-    this.users = [...this.users, user]
+    this.users.push(user)
   }
 
 
