@@ -36,12 +36,11 @@ export class UsersListComponent {
   }
 
   addUser(user: User) {
-    this.users = [...this.users, user]
+    this.users.push(user)
   }
 
 
   deleteUser(id: number) {
     this.users = this.users.filter(user => user.id !== id)
   }
-
 }

@@ -1,4 +1,3 @@
-
 <div class="container">
   @for (user of users; track user.id) {
     <mat-card appearance="outlined" class="mat-card">
