@@ -8,12 +8,12 @@ import {Todo} from "../interfaces/todoApiService";
 })
 export class TodoApiServiceService {
 
-  private http = inject(HttpClient)
-  private apiUrl: string = 'https://jsonplaceholder.typicode.com/'
+   http = inject(HttpClient)
+  apiUrl: string = 'https://jsonplaceholder.typicode.com/'
 
   constructor() { }
 
   getApiTodo(): Observable<Todo[]> {
-    return this.http.get<Todo[]>(`${this.apiUrl}todos`)
+    return this.http.get<Todo[]>(`${this.apiUrl}todos?_limit=${limit}`)
   }
 }

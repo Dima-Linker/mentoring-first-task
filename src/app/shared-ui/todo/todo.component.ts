@@ -25,7 +25,12 @@ export class TodoComponent {
   http = inject(TodoApiServiceService)
   todos: Todo[] = []
   @Input() todo!: Todo
-  private newTodoTitle: string = '';
+  newTodoTitle: string = '';
+
+  displayMode: 'all' | 'completed' | 'uncompleted' = 'all'
+  setDisplayMode(mode: 'all' | 'completed' | 'uncompleted') {
+    this.displayMode = mode
+  }
 
   ngOnInit() {
     this.getTodos();
@@ -47,17 +52,15 @@ export class TodoComponent {
 
   addTodo() {
     if (!this.newTodoTitle.trim()) {
-      return; // Verhindert das Hinzufügen leerer Aufgaben
+      return;
     }
-
     const newTodo: Todo = {
-      id: this.todos.length + 1, // Dynamische ID
-      title: this.newTodoTitle, // Titel von der Eingabe
+      id: this.todos.length + 1,
+      title: this.newTodoTitle,
       completed: false
     };
-
     this.todos.push(newTodo);
-    this.newTodoTitle = ''; // Setze das Eingabefeld zurück
+    this.newTodoTitle = '';
   }
 
 }

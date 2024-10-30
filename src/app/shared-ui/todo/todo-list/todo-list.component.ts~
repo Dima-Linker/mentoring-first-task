@@ -4,6 +4,7 @@ import {MatTable} from "@angular/material/table";
 import {JsonPipe} from "@angular/common";
 import {MatFormField} from "@angular/material/form-field";
 import {MatDivider} from "@angular/material/divider";
+import {FormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-todo-list',
@@ -12,16 +13,21 @@ import {MatDivider} from "@angular/material/divider";
     MatTable,
     JsonPipe,
     MatFormField,
-    MatDivider
+    MatDivider,
+    FormsModule
   ],
   templateUrl: './todo-list.component.html',
-  styleUrl: './todo-list.component.scss'
+  styleUrls: ['./todo-list.component.scss']
 })
 export class TodoListComponent {
   @Output() deleteTodo = new EventEmitter<Todo>();
   @Input() todo!: Todo;
 
   onDeleteTodo(todo: Todo) {
-    this.deleteTodo.emit(this.todo)
+    this.deleteTodo.emit(todo)
+  }
+
+  onCheckTodo(todo: Todo) {
+    todo.completed = !todo.completed
   }
 }
