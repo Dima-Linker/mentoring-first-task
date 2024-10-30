@@ -32,7 +32,7 @@ export class HeaderComponent {
     },
     {
       label: 'Todo',
-      link: '/todo'
+      link: '/about'
     }
   ]
 }

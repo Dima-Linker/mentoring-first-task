@@ -1,0 +1,52 @@
+.todo-containers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.todo-containers-list .table-container {
+  width: 100%;
+  max-width: 1250px;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+.todo-containers-list .table-container th, .todo-containers-list .table-container td {
+  padding: 8px;
+  text-align: left;
+}
+.todo-containers-list .table-container th {
+  background-color: #8c91e6;
+}
+.todo-containers-list .table-container td {
+  border: 1px solid #ddd;
+}
+.todo-containers-list .table-container tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+.todo-containers-list .table-container tr:hover {
+  background-color: #f5f5f5;
+}
+
+.btn-delete-table {
+  align-items: center;
+  width: 200px;
+  background: red;
+  border: none;
+  color: var(--primary-color);
+  padding: 8px;
+  margin-top: 8px;
+  border-radius: 10px;
+}
+.btn-delete-table:hover {
+  opacity: 0.9;
+}
+.btn-delete-table:active {
+  opacity: 0.8;
+}
+
+.btn-delete-table-container {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 10px;
+}
+
+/*# sourceMappingURL=todo-list.component.css.map */
