@@ -1,5 +1,5 @@
 <div class="container">
-  @for (users of userServiceService.userSubjekt$ | async; track users.id) {
+  @for (users of userServiceService.userSubjekt | async; track users.id) {
     <mat-card appearance="outlined" class="mat-card">
       <app-user-card [user]="users" (userRemoved)="removeUser($event)"></app-user-card>
       <div>

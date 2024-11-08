@@ -28,6 +28,7 @@ export class TodoComponent {
   newTodoTitle: string = '';
 
   displayMode: 'all' | 'completed' | 'uncompleted' = 'all'
+
   setDisplayMode(mode: 'all' | 'completed' | 'uncompleted') {
     this.displayMode = mode
   }
@@ -62,5 +63,4 @@ export class TodoComponent {
     this.todos.push(newTodo);
     this.newTodoTitle = '';
   }
-
 }

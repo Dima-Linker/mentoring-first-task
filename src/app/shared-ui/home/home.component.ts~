@@ -3,6 +3,7 @@ import {Button, ButtonDirective} from "primeng/button";
 import {Ripple} from "primeng/ripple";
 import {MatButtonToggle} from "@angular/material/button-toggle";
 import {PanelModule} from "primeng/panel";
+import {ImageModule} from "primeng/image";
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,8 @@ import {PanelModule} from "primeng/panel";
     ButtonDirective,
     Ripple,
     MatButtonToggle,
-    PanelModule
+    PanelModule,
+    ImageModule
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'

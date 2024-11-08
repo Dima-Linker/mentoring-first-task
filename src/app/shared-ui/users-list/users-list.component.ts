@@ -1,11 +1,14 @@
-import {Component, EventEmitter, inject, Input, Output} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, inject, Input, Output} from '@angular/core';
 import {RouterOutlet} from "@angular/router";
 import {User} from "../../data/interfaces/userApiService";
 import {UserApiService} from "../../data/services/userApiService";
 
-import {JsonPipe} from "@angular/common";
+import {AsyncPipe, JsonPipe} from "@angular/common";
 import {MatCard, MatCardContent, MatCardSubtitle, MatCardTitle} from "@angular/material/card";
 import {UserCardComponent} from "./user-card/user-card.component";
+import {UserServiceService} from "./user.service.service";
+
+
 
 @Component({
   selector: 'app-users-list',
@@ -17,29 +20,31 @@ import {UserCardComponent} from "./user-card/user-card.component";
     MatCardContent,
     MatCardTitle,
     MatCardSubtitle,
-    UserCardComponent
-  ],
+    UserCardComponent,
+    AsyncPipe
+  ],changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './users-list.component.html',
   styleUrl: './users-list.component.scss'
 })
 export class UsersListComponent {
 
-  userService = inject(UserApiService); // Instanz des UserApiService
-  usersList: User[] = []; // Liste der Benutzer
+  readonly  userService = inject(UserApiService);
+  readonly userServiceService = inject(UserServiceService)
+
+
 
   constructor() {
-    // Holt die Benutzerdaten von der API
     this.userService.getApiUser().subscribe(receivedUsers => {
-      this.usersList = receivedUsers; // Weist die empfangenen Benutzer der usersList zu
-    });
+      this.userServiceService.setUser(receivedUsers);
+    })
+
   }
 
   addUser(user: User) {
-    this.usersList.push(user); // Fügt den Benutzer zur Liste hinzu
+    this.userServiceService.createUser(user);
   }
 
-  // Entfernt den Benutzer anhand der ID
   removeUser(userId: number) {
-    this.usersList = this.usersList.filter(user => user.id !== userId);
+    this.userServiceService.deleteUser(userId);
   }
 }
